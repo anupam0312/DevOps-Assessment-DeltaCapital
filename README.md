@@ -28,3 +28,7 @@ Jenkinsfile → CI/CD pipeline
 
 ## CI/CD
 - Jenkins pipeline builds & pushes Docker image to DockerHub, then deploys to Kubernetes.
+
+
+## How to Run
+See [EXECUTION.md](EXECUTION.md) for detailed setup and execution steps.
