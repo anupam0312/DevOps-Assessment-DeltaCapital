@@ -2,10 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: clients-api-service
+  labels:
+    app: clients-api
+    owner: anupam
+    environment: dev
 spec:
   selector:
     app: clients-api
   ports:
-    - port: 80
+    - name: http
+      port: 80
       targetPort: 5000
-  type: NodePort
+  type: ClusterIP
