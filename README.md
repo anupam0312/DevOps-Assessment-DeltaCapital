@@ -1,5 +1,8 @@
 # DevOps Assessment – Clients API
 
+I choose flask for simplicity, Dockerized the app, and used Jenkins for CI/CD. Mongodb is deployed as datastore and Cer-manager is used for TLS.
+Future Improvements : - Integrate Helm for packaging and adding automated tests with Pytest.
+
 ## Overview
 This repo contains:
 - A simple Clients API (Flask, Dockerized)
