@@ -2,9 +2,16 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mongo
+  labels:
+    app: mongo
+    owner: anupam
+    environment: dev
 spec:
   selector:
     app: mongo
   ports:
-    - port: 27017
+    - name: mongodb
+      port: 27017
       targetPort: 27017
+  clusterIP: None                           #usually just makes it a headless service (useful for stateful sets)
+
