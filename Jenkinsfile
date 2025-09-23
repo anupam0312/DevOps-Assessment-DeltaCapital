@@ -24,6 +24,13 @@ pipeline {
                 }
             }
         }
+        
+        stage('List Files') {
+    steps {
+        sh 'ls -l'
+    }
+}
+
         stage('Deploy to K8s') {
             steps {
                 sh 'kubectl apply -f k8s/'
