@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: clients-api
+  labels:
+    app: clients-api
+    owner: anupam
+    environment: dev
 spec:
   replicas: 2
   selector:
@@ -20,3 +24,10 @@ spec:
           env:
             - name: MONGO_URL
               value: mongodb://mongo:27017/clientsdb
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
