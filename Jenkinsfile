@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-username/DevOps-Assessment.git'
+                git 'https://github.com/anupam0312/DevOps-Assessment-DeltaCapital.git'
             }
         }
         stage('Build Docker Image') {
