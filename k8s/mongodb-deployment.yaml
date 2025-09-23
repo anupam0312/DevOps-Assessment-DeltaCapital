@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongo
+  labels:
+    app: mongo
+    owner: anupam
+    environment: dev
 spec:
   replicas: 1
   selector:
@@ -20,6 +24,26 @@ spec:
           volumeMounts:
             - mountPath: /data/db
               name: mongo-persistent-storage
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          livenessProbe:
+            tcpSocket:
+              port: 27017
+            initialDelaySeconds: 30
+            periodSeconds: 30
+          readinessProbe:
+            exec:
+              command:
+                - mongo
+                - --eval
+                - "db.adminCommand('ping')"
+            initialDelaySeconds: 10
+            periodSeconds: 30
       volumes:
         - name: mongo-persistent-storage
           emptyDir: {}
